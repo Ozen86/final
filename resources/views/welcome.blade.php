@@ -35,7 +35,7 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
     <!-- Navbar -->
-    <nav class="fixed w-full bg-white dark:bg-gray-800 drop-shadow-md z-50">
+    <nav class="fixed w-full bg-white dark:bg-gray-800 drop-shadow-md z-50" id="home">
         <!-- [Perubahan 1]: Mengurangi padding horizontal dan mengganti max-w-6xl dengan max-w-7xl -->
         <!-- Fungsi: Mengurangi padding horizontal dari p-7 (28px) menjadi px-4 (16px) untuk mendekatkan elemen ke tepi, dan mengubah max-w-6xl (1152px) menjadi max-w-7xl (1280px) untuk memperlebar container -->
         <div class="max-w-7xl mx-auto flex justify-between pt-4 pb-4 items-center px-4">
@@ -48,12 +48,30 @@
             <!-- [Perubahan 2]: Menyesuaikan padding pada menu -->
             <!-- Fungsi: Mengurangi padding horizontal pada menu hamburger dengan px-4 (16px) agar lebih dekat ke tepi saat dibuka -->
             <ul id="navbar-menu" class="bg-white dark:bg-gray-800 flex justify-between items-center flex-col gap-5 text-gray-400 absolute overflow-y-scroll w-full left-0 top-20 px-4 transition-all duration-500 ease-out h-0 md:static md:flex-row md:h-auto md:top-auto md:overflow-auto md:justify-center md:w-fit">
-                <li><a href="Home" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a></li>
-                <li><a href="About" class="hover:text-blue-600 dark:hover:text-blue-400 transition">About</a></li>
-                <li><a href="How To" class="hover:text-blue-600 dark:hover:text-blue-400 transition">How To</a></li>
-                <li><a href="Contact" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a></li>
+                <li><a href="/" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a></li>
+                <li><a href="#fitur" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Features</a></li>
+                <li><a href="#mitra" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Mitra</a></li>
+                <li><a href="#footer" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a></li>
                 <li>
-                    <a href="#" class="bg-blue-700 transition-colors hover:bg-white text-white hover:text-blue-700 py-2 px-2 rounded-md block">
+                    <!-- @if (Route::has('login'))
+                @auth
+                    <a href="{{ url('/dashboard') }}"
+                       class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm transition shadow">
+                        Dashboard
+                    </a>
+                @else
+                    <a href="{{ route('login') }}"
+                       class="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2 rounded text-sm transition">
+                        Masuk
+                    </a>
+                @endauth
+            @endif -->
+                    <a href="{{ route('login') }}" class="bg-blue-700 transition-colors hover:bg-white text-white hover:text-blue-700 py-2 px-2 rounded-md block">
+                        Sign in
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('login') }}" class="bg-blue-700 transition-colors hover:bg-white text-white hover:text-blue-700 py-2 px-2 rounded-md block">
                         Sign in
                     </a>
                 </li>
@@ -63,7 +81,7 @@
 
     <!-- [Perubahan 3]: Memindahkan text "Selamat Datang" ke kiri -->
     <!-- Fungsi: Menghapus justify-center dari <header> dan mx-auto dari <div>, serta menambahkan ml-0 untuk memastikan teks berada di sisi kiri -->
-    <header class="min-h-screen flex items-start pt-[100px] pb-7">
+    <header class="min-h-3/4 flex items-start pt-[100px] pb-4">
         <div class="grid grid-cols-1 md:grid-cols-2 items-center max-w-7xl px-4 ml-0 md:pl-36">
             <div class="mb-10 md:mb-10">
                 <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
@@ -71,7 +89,7 @@
                     Di <span class="font-bold">Web</span> SIJA PKL
                 </h1>
                 <p class="mb-5 mt-7 max-w-md text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit quisquam voluptate nulla iure, autem nam praesentium deserunt quaerat veniam in optio? Officiis, dolore. Ducimus hic deserunt placeat commodi reiciendis et?</p>
-                <a href="#" class="bg-blue-700 hover:bg-white transition-colors text-white hover:text-blue-700 py-3 px-7 rounded-md mr-4 mt-1 inline-block text-lg">Get Started</a>
+                <a href="https://sijastembayo.me/" class="bg-blue-700 hover:bg-white transition-colors text-white hover:text-blue-700 py-3 px-7 rounded-md mr-4 mt-1 inline-block text-lg">About SIJA</a>
             </div>
             <div class="flex justify-center md:justify-end">
                 <!-- [Perubahan 2]: Memperbaiki path gambar -->
@@ -81,7 +99,7 @@
         </div>
     </header>
     
-    <section class="dark:bg-gray-800 text-center">
+    <section class="dark:bg-gray-800 text-center" id="fitur">
         <div class="max-w-6xl mx-auto px-7 py-10">
             <div class="mb-14">
                 <p class="text-white text-lg">Features</p>
@@ -120,7 +138,7 @@
         </div>
     </section>
 
-    <section class="bg-gray">
+    <section class="bg-gray" id="mitra">
         <div class="max-w-6xl mx-auto px-7 py-10">
             <div class="mb-14 text-center">
                     <p class="text-gray-500 text-lg">Mitra</p>
@@ -131,40 +149,40 @@
                     <img src="/img/gama.jpg" class="w-full h-32 object-cover object-center rounded-md" alt="">
                     <p class="md:pt-2 text-gray-400 text-lg">Technology</p>
                     <h2 class="text-2xl font-bold my-2">PT Gamatechno</h2>
-                    <a href="#" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
+                    <a href="https://www.gamatechno.com/" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
                 </div>
                 <div class="border border-gray-200 hover:border-4 rounded-lg p-4 transition-all duration-100 ease-in-out">
                     <img src="/img/Profil-CV-KHS.jpg" class="w-full h-32 object-cover object-center rounded-md" alt="">
                     <p class="md:pt-2 text-gray-400 text-lg">Technology</p>
                     <h2 class="text-2xl font-bold my-2">CV KHS Quick Tractor</h2>
-                    <a href="#" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
+                    <a href="https://quick.co.id/tentang-cv-karya-hidup-sentosa" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
                 </div>
                 <div class="border border-gray-200 hover:border-4 rounded-lg p-4 transition-all duration-100 ease-in-out">
                     <img src="/img/images.png" class="w-full h-32 object-cover object-center rounded-md" alt="">
                     <p class="md:pt-2 text-gray-400 text-lg">Technology</p>
                     <h2 class="text-2xl font-bold my-2">Botika</h2>
-                    <a href="#" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2 md:pt-8"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
+                    <a href="https://botika.online/" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2 md:pt-8"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
                 </div>
                 <div class="border border-gray-200 hover:border-4 rounded-lg p-4 transition-all duration-100 ease-in-out">
                     <img src="/img/multi.png" class="w-full h-32 object-cover object-center rounded-md" alt="">
                     <p class="md:pt-2 text-gray-400 text-lg">Technology</p>
                     <h2 class="text-2xl font-bold my-2">PT Multiintegra</h2>
-                    <a href="#" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
+                    <a href="https://www.multiintegra.co.id/" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
                 </div>
                 <div class="border border-gray-200 hover:border-4 rounded-lg p-4 transition-all duration-100 ease-in-out">
                     <img src="/img/aqsa.png" class="w-full h-32 object-cover object-center rounded-md" alt="">
                     <p class="md:pt-2 text-gray-400 text-lg">Technology</p>
                     <h2 class="text-2xl font-bold my-2">PT Aksa Digital Group</h2>
-                    <a href="#" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
+                    <a href="https://aksa.id/" class="flex justify-start items-center gap-4 hover:text-blue-600 transition-colos mb-2"><span class="font-bold">Website</span> <i class="fas fa-arrow-right text-blue-600"></i> </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="dark:bg-gray-800 text-white">
+    <footer class="dark:bg-gray-800 text-white" id="footer">
         <div class="max-w-6xl mx-auto px-7 py-10 grid grid-cols-1 md:grid-cols2 lg:grid-cols-4 gap-12 lg:justify-items-center">
             <div>
-                <h1 class="font-bold text-3xl">Lorem Ipsum</h1>
+                <h1 class="font-bold text-3xl">Social Media</h1>
                 <p class="my-4 text-slate-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit est enim quas facere eius quam, sed, repellendus vero accusantium dolore voluptas nulla tempora eaque voluptate?</p>
                 <div class="flex justify-start items-center gap-3">
                 <a href="#" class="w-12 h-12 bg-white text-black text-2xl rounded-xl flex justify-center items-center"><i class="fab fa-facebook-f"></i></a>    
@@ -187,8 +205,8 @@
             </div>
             <div class="text-slate-400 flex flex-col gap-3">
                 <h2 class="font-bold text-2xl text-white">Partners</h2>
-                <a href="#">SIJA</a>
-                <a href="#">Stembayo</a>
+                <a href="https://sijastembayo.me/">SIJA</a>
+                <a href="https://www.smkn2depoksleman.sch.id/">Stembayo</a>
             </div>
 
         </div>
@@ -202,8 +220,35 @@
 
         navbarToggle.addEventListener('click', () => {
             navbarMenu.classList.toggle('h-0');
-            navbarMenu.classList.toggle('h-80');
+            navbarMenu.classList.toggle('h-64');
         });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
 </body>
 </html>
