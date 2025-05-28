@@ -20,6 +20,8 @@ class PKLResource extends Resource
 {
     protected static ?string $model = PKL::class;
 
+    protected static ?string $slug = 'pkl';
+
     protected static ?string $navigationLabel = 'Data PKL';
     
     protected static ?string $pluralLabel = 'Daftar Data PKL';

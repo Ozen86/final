@@ -2,7 +2,7 @@
     <!-- Header -->
     <div class="relative mb-6 w-full grid grid-cols-12 gap-4">
         <div class="col-span-12 md:col-span-6 flex justify-start items-center">
-            @if(auth()->check() && auth()->user()->hasRole('Siswa') && !auth()->user()->siswa)
+            @if(auth()->check() && auth()->user()->hasRole('siswa') && !auth()->user()->siswa)
                 <a href="{{ route('siswa.create') }}"
                 class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition duration-200
                 dark:bg-blue-500 dark:hover:bg-blue-800">
@@ -12,7 +12,7 @@
         </div>
         <div class="col-span-12 md:col-span-6 flex justify-end space-x-4">
             <div class="flex items-center space-x-2">
-                @if(auth()->check() && auth()->user()->hasRole('Guru'))
+                @if(auth()->check() && auth()->user()->hasRole('guru'))
                 <label for="search" class="text-sm font-medium text-gray-700 dark:text-gray-200">Cari:</label>
                 <input wire:model.live="search" id="search" type="text" placeholder="nama siswa disini..."
                        class="w-full md:w-72 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out">
@@ -67,7 +67,7 @@
                                     class="cursor-pointer absolute right-0 mt-2 w-36 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded shadow-md z-50">
                                     <a href="{{ route('siswa.show', ['id' => $siswa->id]) }}"
                                     class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150">View</a>
-                                    @if(auth()->user() && auth()->user()->hasRole('Siswa'))
+                                    @if(auth()->user() && auth()->user()->hasRole('siswa'))
                                     <a href="{{ route('siswa.edit', ['id' => $siswa->id]) }}"
                                     class="block px-4 py-2 text-sm text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150">Edit</a>
                                     @endif
@@ -87,7 +87,7 @@
             </tbody>
         </table>
     </div>
-    @if(auth()->user() && auth()->user()->hasRole('Guru'))
+    @if(auth()->user() && auth()->user()->hasRole('guru'))
         <div class="my-4">
             <!-- Pagination Links -->
             <div class="flex justify-between items-center mb-4">
