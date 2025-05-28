@@ -36,7 +36,7 @@ class UserGuruSeeder extends Seeder
                 ]
             );
 
-            $user->assignRole('Guru');
+            $user->assignRole('guru');
         }
     }
 }
