@@ -53,28 +53,26 @@
                 <li><a href="#mitra" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Mitra</a></li>
                 <li><a href="#footer" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a></li>
                 <li>
-                    <!-- @if (Route::has('login'))
-                @auth
-                    <a href="{{ url('/dashboard') }}"
-                       class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm transition shadow">
-                        Dashboard
-                    </a>
-                @else
-                    <a href="{{ route('login') }}"
-                       class="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2 rounded text-sm transition">
-                        Masuk
-                    </a>
-                @endauth
-            @endif -->
+                @if (Route::has('login'))
+                    <!-- <nav class="flex items-center justify-end gap-4"> -->
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="bg-blue-700 transition-colors hover:bg-white text-white hover:text-blue-700 py-2 px-2 rounded-md block">
+                            Dashboard
+                        </a>
+                    @else
                     <a href="{{ route('login') }}" class="bg-blue-700 transition-colors hover:bg-white text-white hover:text-blue-700 py-2 px-2 rounded-md block">
                         Sign in
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('login') }}" class="bg-blue-700 transition-colors hover:bg-white text-white hover:text-blue-700 py-2 px-2 rounded-md block">
-                        Sign in
-                    </a>
+                    @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="bg-blue-700 transition-colors hover:bg-white text-white hover:text-blue-700 py-2 px-2 rounded-md block">
+                                Register
+                            </a>
+                        @endif
+                    @endauth
                 </li>
+                @endif
             </ul>
         </div>
     </nav>

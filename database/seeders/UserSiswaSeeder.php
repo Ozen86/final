@@ -83,7 +83,7 @@ class UserSiswaSeeder extends Seeder
         ];
 
         // Buat role siswa jika belum ada
-        Role::firstOrCreate(['name' => 'siswa']);
+        Role::firstOrCreate(['name' => 'Siswa']);
 
         foreach ($siswaData as [$name, $nis]) {
             $email = "{$nis}@sija.com";
